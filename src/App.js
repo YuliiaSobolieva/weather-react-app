@@ -32,7 +32,7 @@ function App() {
     <div className="Forecast">
       <h1>Weather App</h1>
       <form onSubmit={searchingCity}>
-        <input type="search" onChange={newCity} />
+        <input type="search" placeholder="Type a city..." onChange={newCity} />
         <input type="submit" value="Search" />
       </form>
       {forecast ? (
@@ -49,6 +49,22 @@ function App() {
           />
         </div>
       ) : null}
+      <p>
+        <a
+          href="https://github.com/YuliiaSobolieva/weather-react-app"
+          target="_blank"
+        >
+          Open-source code
+        </a>
+        , by{" "}
+        <a href="https://github.com/YuliiaSobolieva" target="_blank">
+          Yuliia Sobolieva
+        </a>{" "}
+        for{" "}
+        <a href="https://www.shecodes.io/" target="_blank">
+          She Codes
+        </a>
+      </p>
     </div>
   );
 }

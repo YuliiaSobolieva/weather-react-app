@@ -53,15 +53,20 @@ function App() {
         <a
           href="https://github.com/YuliiaSobolieva/weather-react-app"
           target="_blank"
+          rel="noreferrer"
         >
           Open-source code
         </a>
         , by{" "}
-        <a href="https://github.com/YuliiaSobolieva" target="_blank">
+        <a
+          href="https://github.com/YuliiaSobolieva"
+          target="_blank"
+          rel="noreferrer"
+        >
           Yuliia Sobolieva
         </a>{" "}
         for{" "}
-        <a href="https://www.shecodes.io/" target="_blank">
+        <a href="https://www.shecodes.io/" target="_blank" rel="noreferrer">
           She Codes
         </a>
       </p>

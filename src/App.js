@@ -29,47 +29,31 @@ function App() {
   }
 
   return (
-    <div className="Forecast">
-      <h1>Weather App</h1>
+    <div className="App">
       <form onSubmit={searchingCity}>
         <input type="search" placeholder="Type a city..." onChange={newCity} />
         <input type="submit" value="Search" />
       </form>
       {forecast ? (
-        <div>
+        <div className="Forecast">
+          <h2>{city}</h2>
+          <div className="row">
+            <div className="col-6">
+              <img
+                src={`https://openweathermap.org/img/wn/${forecast.icon}@2x.png`}
+                alt={forecast.description}
+              />
+            </div>
+            <div className="col-6 temperature">{forecast.temperature}°C</div>
+          </div>
+
           <ul>
-            <li>Temperature: {forecast.temperature}°C</li>
             <li>Description: {forecast.description}</li>
             <li>Humidity: {forecast.humidity}</li>
             <li>Wind: {forecast.wind}</li>
           </ul>
-          <img
-            src={`https://openweathermap.org/img/wn/${forecast.icon}@2x.png`}
-            alt={forecast.description}
-          />
         </div>
       ) : null}
-      <p>
-        <a
-          href="https://github.com/YuliiaSobolieva/weather-react-app"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Open-source code
-        </a>
-        , by{" "}
-        <a
-          href="https://github.com/YuliiaSobolieva"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Yuliia Sobolieva
-        </a>{" "}
-        for{" "}
-        <a href="https://www.shecodes.io/" target="_blank" rel="noreferrer">
-          She Codes
-        </a>
-      </p>
     </div>
   );
 }

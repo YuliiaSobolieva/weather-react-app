@@ -1,10 +1,45 @@
-.Forecast {
+.Body {
+  display: block;
+  justify-content: center;
+  border: 1px solid #dadde1;
+  padding: auto;
+  margin-top: 20px;
+}
+
+.App {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
 
-h1 {
+.Forecast {
+  margin-top: 13px;
+}
+
+.temperature {
+  font-size: 63px;
+}
+
+h1,
+h2 {
   color: blueviolet;
+}
+
+h2 {
+  text-align: center;
+}
+
+li {
+  list-style-type: none;
+}
+
+header,
+footer {
+  display: flex;
+  justify-content: center;
+}
+
+footer {
+  margin-top: 21px;
 }

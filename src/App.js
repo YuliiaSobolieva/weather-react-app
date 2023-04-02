@@ -5,41 +5,55 @@ import Units from "./Units";
 
 function App() {
   const [city, setCity] = useState("");
-  const [forecast, setForecast] = useState("");
+  const [forecast, setForecast] = useState(null);
+  const [errorMessage, setErrorMessage] = useState("");
   // const [temperature, setTemperature] = useState();
 
-  function searchingCity(event) {
+  function getForecast(event) {
     event.preventDefault();
+    setErrorMessage("");
     let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=3673fcbbb0434bfb8eee4e62c8035ae8`;
 
-    axios.get(url).then(showTemperature);
+    axios.get(url).then(fetchForecast).catch(handleError);
 
-    function showTemperature(response) {
+    function fetchForecast(response) {
       const temperature = Math.round(response.data.main.temp);
       const description = response.data.weather[0].description;
       const humidity = response.data.main.humidity;
       const wind = response.data.wind.speed;
       const icon = response.data.weather[0].icon;
+      const currentCity = response.data.name;
       // console.log(response);
-      setForecast({ temperature, description, humidity, wind, icon });
+      setForecast({
+        temperature,
+        description,
+        humidity,
+        wind,
+        icon,
+        currentCity,
+      });
+    }
+
+    function handleError() {
+      setForecast(null);
+      setErrorMessage("Something went wrong...");
     }
   }
 
-  function newCity(event) {
+  function setNewCity(event) {
     setCity(event.target.value);
   }
 
-  let City = city.toLowerCase();
   return (
     <div className="App">
-      <form onSubmit={searchingCity}>
+      <form onSubmit={getForecast}>
         <div className="row">
           <div className="col-9">
             <input
               class="form-control"
               type="search"
               placeholder="Type a city..."
-              onChange={newCity}
+              onChange={setNewCity}
             />
           </div>
           <div className="col-3">
@@ -52,10 +66,11 @@ function App() {
         </div>
       </form>
 
+      {errorMessage ? <h3>{errorMessage}</h3> : null}
+
       {forecast ? (
         <div className="Forecast">
-
-          <h2>{City}</h2>
+          <h2>{forecast.currentCity}</h2>
           <h3>{forecast.description}</h3>
           <div className="ForecastDetails">
             <div className="ForecastDetailsIcon">

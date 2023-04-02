@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./App.css";
+import Units from "./Units";
 
 function App() {
   const [city, setCity] = useState("");
@@ -28,30 +29,53 @@ function App() {
     setCity(event.target.value);
   }
 
+  let City = city.toLowerCase();
   return (
     <div className="App">
       <form onSubmit={searchingCity}>
-        <input type="search" placeholder="Type a city..." onChange={newCity} />
-        <input type="submit" value="Search" />
+        <div className="row">
+          <div className="col-9">
+            <input
+              class="form-control"
+              type="search"
+              placeholder="Type a city..."
+              onChange={newCity}
+            />
+          </div>
+          <div className="col-3">
+            <input
+              type="submit"
+              class="btn btn-outline-primary"
+              value="Search"
+            />
+          </div>
+        </div>
       </form>
+
       {forecast ? (
         <div className="Forecast">
-          <h2>{city}</h2>
-          <div className="row">
-            <div className="col-6">
+
+          <h2>{City}</h2>
+          <h3>{forecast.description}</h3>
+          <div className="ForecastDetails">
+            <div className="ForecastDetailsIcon">
               <img
                 src={`https://openweathermap.org/img/wn/${forecast.icon}@2x.png`}
                 alt={forecast.description}
               />
             </div>
-            <div className="col-6 temperature">{forecast.temperature}°C</div>
-          </div>
 
-          <ul>
-            <li>Description: {forecast.description}</li>
-            <li>Humidity: {forecast.humidity}</li>
-            <li>Wind: {forecast.wind}</li>
-          </ul>
+            <div className="ForecastDetailsTemperature">
+              <Units celsius={forecast.temperature} />
+            </div>
+
+            <div className="ForecastDetailsDescription">
+              <ul>
+                <li>Humidity: {forecast.humidity}</li>
+                <li>Wind: {forecast.wind}</li>
+              </ul>
+            </div>
+          </div>
         </div>
       ) : null}
     </div>

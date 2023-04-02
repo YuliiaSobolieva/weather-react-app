@@ -1,9 +1,14 @@
 .Body {
-  display: block;
-  justify-content: center;
-  border: 1px solid #dadde1;
-  padding: auto;
-  margin-top: 20px;
+  /* display: block; */
+  max-width: 500px;
+  /* justify-content: center;
+   */
+  border: 1px solid #f9f7fe;
+  box-shadow: 0 30px 50px rgba(65, 50, 100, 0.08);
+  border-radius: 4px;
+  padding: 15px;
+  margin: 20px auto;
+  background-color: white;
 }
 
 .App {
@@ -14,11 +19,48 @@
 }
 
 .Forecast {
-  margin-top: 13px;
+  width: 100%;
+  margin-top: 24px;
+  padding: 8px;
+  background: rgb(249, 247, 254, 0.5);
+  border: 1px solid #ced4da;
+  border-radius: 5px;
+}
+
+.ForecastDetails {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.unitsConv {
+  min-width: max-content;
 }
 
 .temperature {
+  /* width: 50%; */
   font-size: 63px;
+}
+
+.unit {
+  /* display: inline; */
+  /* width: 50%; */
+  vertical-align: top;
+  font-size: 18px;
+}
+
+.ForecastDetailsDescription ul {
+  padding-left: 0;
+  padding-right: 10px;
+  padding-top: 22px;
+}
+
+body {
+  /* margin: auto; */
+  display: block;
+  justify-content: center;
+  background: #f9f7fe !important;
 }
 
 h1,
@@ -27,7 +69,17 @@ h2 {
 }
 
 h2 {
-  text-align: center;
+  margin-top: 20px !important;
+  font-size: 3rem;
+  width: 100%;
+
+  /* text-align: center; */
+}
+
+h2,
+h3 {
+  margin-left: 15px;
+  text-transform: capitalize;
 }
 
 li {
@@ -40,6 +92,10 @@ footer {
   justify-content: center;
 }
 
+header {
+  padding-bottom: 10px;
+}
+
 footer {
-  margin-top: 21px;
+  margin-top: 24px;
 }

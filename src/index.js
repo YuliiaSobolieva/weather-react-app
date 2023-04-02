@@ -10,33 +10,35 @@ root.render(
   <React.StrictMode>
     <div className="Body">
       <header>
-        <h1>Weather App</h1>
+        <h1>Forecast App</h1>
       </header>
 
       <App />
-    </div>
 
-    <footer>
-      <a
-        href="https://github.com/YuliiaSobolieva/weather-react-app"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Open-source code
-      </a>
-      , by{" "}
-      <a
-        href="https://github.com/YuliiaSobolieva"
-        target="_blank"
-        rel="noreferrer"
-      >
-        Yuliia Sobolieva
-      </a>{" "}
-      for{" "}
-      <a href="https://www.shecodes.io/" target="_blank" rel="noreferrer">
-        She Codes
-      </a>
-    </footer>
+      <footer>
+        <p>
+          <a
+            href="https://github.com/YuliiaSobolieva/weather-react-app"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Open-source code
+          </a>{" "}
+          by{" "}
+          <a
+            href="https://github.com/YuliiaSobolieva"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Yuliia Sobolieva
+          </a>{" "}
+          for{" "}
+          <a href="https://www.shecodes.io/" target="_blank" rel="noreferrer">
+            She Codes
+          </a>
+        </p>
+      </footer>
+    </div>
   </React.StrictMode>
 );
 

@@ -1,0 +1,24 @@
+.WeatherForecast {
+  /* margin-top:20px; */
+  padding: 7px;
+  text-align: center;
+}
+
+.minTemp {
+  color: #ced4da;
+}
+
+.maxTemp,
+.minTemp {
+  font-size: 14px;
+}
+
+.col-2 {
+background: #ffffff;
+  border: 1px solid #f7f9fe;
+  border-radius: 5px;
+}
+
+.ForecastIcon img {
+  width: 58px;
+}

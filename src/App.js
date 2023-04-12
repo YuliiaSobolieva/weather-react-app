@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./App.css";
 import Units from "./Units";
+import DailyForecast from "./DailyForecast";
+import CurrentDate from "./CurrentDate";
 
 function App() {
   const [city, setCity] = useState("");
@@ -23,7 +25,10 @@ function App() {
       const wind = response.data.wind.speed;
       const icon = response.data.weather[0].icon;
       const currentCity = response.data.name;
+      const coordinates = response.data.coord;
+
       // console.log(response);
+
       setForecast({
         temperature,
         description,
@@ -31,6 +36,7 @@ function App() {
         wind,
         icon,
         currentCity,
+        coordinates,
       });
     }
 
@@ -50,7 +56,7 @@ function App() {
         <div className="row">
           <div className="col-9">
             <input
-              class="form-control"
+              className="form-control"
               type="search"
               placeholder="Type a city..."
               onChange={setNewCity}
@@ -59,7 +65,7 @@ function App() {
           <div className="col-3">
             <input
               type="submit"
-              class="btn btn-outline-primary"
+              className="btn btn-outline-primary"
               value="Search"
             />
           </div>
@@ -70,27 +76,33 @@ function App() {
 
       {forecast ? (
         <div className="Forecast">
-          <h2>{forecast.currentCity}</h2>
-          <h3>{forecast.description}</h3>
-          <div className="ForecastDetails">
-            <div className="ForecastDetailsIcon">
-              <img
-                src={`https://openweathermap.org/img/wn/${forecast.icon}@2x.png`}
-                alt={forecast.description}
-              />
+          <div className="TodayWeather">
+            <div className="ShortInformation">
+              <h2>{forecast.currentCity}</h2>
+              <h3>{forecast.description}</h3>
+              <CurrentDate />
             </div>
 
-            <div className="ForecastDetailsTemperature">
-              <Units celsius={forecast.temperature} />
-            </div>
-
-            <div className="ForecastDetailsDescription">
-              <ul>
-                <li>Humidity: {forecast.humidity}</li>
-                <li>Wind: {forecast.wind}</li>
-              </ul>
+            <div className="ForecastDetails">
+              <div className="ForecastDetailsIcon">
+                <img
+                  src={`https://openweathermap.org/img/wn/${forecast.icon}@2x.png`}
+                  alt={forecast.description}
+                />
+              </div>
+              <div className="ForecastDetailsTemperature">
+                <Units celsius={forecast.temperature} />
+              </div>
+              <div className="ForecastDetailsDescription">
+                <ul>
+                  <li>Humidity: {forecast.humidity}</li>
+                  <li>Wind: {forecast.wind}</li>
+                </ul>
+              </div>
             </div>
           </div>
+
+          <DailyForecast coordinates={forecast.coordinates} />
         </div>
       ) : null}
     </div>

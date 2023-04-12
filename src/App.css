@@ -1,6 +1,6 @@
 .Body {
   /* display: block; */
-  max-width: 500px;
+  max-width: 650px;
   /* justify-content: center;
    */
   border: 1px solid #f9f7fe;
@@ -18,6 +18,10 @@
   flex-direction: column;
 }
 
+.CurrentDate {
+  margin-left: 15px;
+}
+
 .Forecast {
   width: 100%;
   margin-top: 24px;
@@ -27,11 +31,27 @@
   border-radius: 5px;
 }
 
-.ForecastDetails {
+.TodayWeather {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
+}
+
+.ForecastDetails {
+  /* width: 100%; */
+  display: flex;
+  flex-direction: row;
+  margin: 20px auto;
+  
+}
+
+.ForecastDetailsTemperature {
+  margin-left: 15px;
+}
+
+.ForecastDetailsDescription {
+  margin-left: 20px;
 }
 
 .unitsConv {
@@ -63,6 +83,14 @@ body {
   background: #f9f7fe !important;
 }
 
+.shortInformation h2 {
+  font-size: 50px;
+}
+
+.shortInformation h3 {
+  font-size: 18px;
+}
+
 h1,
 h2 {
   color: blueviolet;
@@ -70,10 +98,12 @@ h2 {
 
 h2 {
   margin-top: 20px !important;
-  font-size: 3rem;
+  font-size: 45px;
   width: 100%;
+}
 
-  /* text-align: center; */
+h3 {
+  font-size: 18px;
 }
 
 h2,
